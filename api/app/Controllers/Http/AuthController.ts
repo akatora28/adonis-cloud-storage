@@ -18,7 +18,7 @@ export default class AuthController {
         const email = request.input("email")
         const password = request.input("password")
 
-        let token: String // type string?
+        let token: String
         try {
             token = await this.authService.register(email, password, auth)
         } catch (error) {
