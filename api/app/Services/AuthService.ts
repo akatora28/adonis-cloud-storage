@@ -20,6 +20,18 @@ export default class AuthService {
         // Login user and return credentials to frontend
         let token
         try {
+            token = await this.login(email, password, auth)
+        } catch (error) {
+            Logger.error(error.message)
+            return error.message
+        }
+
+        return token
+    }
+
+    public async login(email: string, password: string, auth: AuthContract) {
+        let token
+        try {
             token = await auth.use("api").attempt(email, password)
         } catch (error) {
             Logger.error(error.message)
