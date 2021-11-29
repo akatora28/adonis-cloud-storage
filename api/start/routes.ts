@@ -20,6 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+// Leaving "Hello, World!" at root in case it's needed for sanity-checks
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+import './routes/auth'
